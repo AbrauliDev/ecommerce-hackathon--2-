@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    @apply bg-cream-50 text-bark-600 antialiased;
+  }
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+  }
+  /* Headings con curva más suave de Fraunces */
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+    @apply text-bark-700;
+  }
+}
+
+@layer components {
+  /* Border ornamental usado en secciones clave */
+  .divider-leaf {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .divider-leaf::before,
+  .divider-leaf::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, theme('colors.sage.300'), transparent);
+  }
+
+  /* Texto sobre fondo verde */
+  .text-on-sage {
+    color: theme('colors.cream.50');
+  }
+}
+
+/* Scrollbar discreto temático */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.cream.100');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.sage.300');
+  border-radius: 5px;
+  border: 2px solid theme('colors.cream.100');
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.sage.500');
+}
+
+/* Selección de texto */
+::selection {
+  background: theme('colors.clay.200');
+  color: theme('colors.bark.700');
+}
